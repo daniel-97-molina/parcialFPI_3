@@ -79,7 +79,8 @@ fieldset {
 #navthing > input{
 	position: relative;
 	top: -5px;
-	max-width: 500px;
+	max-width: 400px;
+	padding: 10px;
 	display: inline-block;
 	margin-left: 13%;
 }
@@ -114,16 +115,16 @@ a:hover {
 }
 
 
-
 #contenedor{
 	padding: 10px;
 	background-color: #F6D8CE;
 	width: 900px;
-	height: 500px;
+	height: 490px;
 	margin: auto;
 	border-radius: 15px;
 }
 #layout-izquierda{
+	position: relative;
 	padding: 10px;
 	box-sizing: border-box; 
 	width: 65%;
@@ -137,10 +138,19 @@ a:hover {
 
 
 
-#image{
+.contenedor-imagen{
 	float:left;
 	width: 40%;
+	height: 300px;
+}
+
+#image{
+	top: -15px;
+	position: absolute;
+	width: 300px;
 	height: auto;
+	left: -25px;
+	
 }
 #derecha{
 	padding: 10px;
@@ -148,14 +158,16 @@ a:hover {
 	width: 56%;
 }
 
-
-#contenedor-nombre{
+.sombraGrande{
+	margin-bottom: 15px;
+	box-shadow: 8px 8px 0 0 rgba(0,0,0,0.2);
+	border: 3px solid #585858;
 	background-color: white;
 	border-radius: 10px;
 	width: 100%;
 	height: 80px;
-	border: 3px solid #585858;
 }
+
 .titulo{
 	background-color: #FA5858;
 	border-radius: 7px 7px 0 0;
@@ -183,7 +195,7 @@ a:hover {
 	display: inline-block;
 	border-radius: 5px;
 	text-align: center;
-	margin: 15px 0 10px 25px;
+	margin: 15px 0 25px 25px;
 	padding: 5px 10px;
 	text-transform: uppercase;
 	background-color: #D8F781;
@@ -192,6 +204,31 @@ a:hover {
 	background-color: #81BEF7;
 	margin-left: 10px;
 }
+
+.detalles{
+	width: 300px;
+	margin-left: 5px;
+	box-sizing: border-box;
+	padding: 8px 0 0 20px;
+}
+
+.abajo{
+	box-shadow: none;
+	position: absolute;
+	width: 555px;
+	height: 150px;
+	bottom: 0;
+}
+
+.borderojo{
+	border-radius: 6px;
+	width: 515px;
+	height: 100%;
+	border-left: 20px  solid #FE2E2E;
+	border-right: 20px  solid #FE2E2E;
+	
+}
+
 
 
 

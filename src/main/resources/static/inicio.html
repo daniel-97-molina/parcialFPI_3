@@ -12,16 +12,16 @@
   <div id="regbar">
     <div id="navthing">
       <h2><a href="#" id="loginform">Login</a> | <a id="registerform" href="#">Registro</a></h2>
-      <input type="text" placeholder="busqueda...  ej: pikachu" >
+      <input id="txtBusqueda" type="text" placeholder="busqueda...  ej: pikachu" >
     <div class="login" id="login">
       <div class="arrow-up"></div>
       <div class="formholder">
         <div class="randompad">
            <fieldset>
              <label >Email</label>
-             <input type="email" placeholder="example@example.com" />
+             <input id="txtEmailLogin" type="email" placeholder="example@example.com" maxlength="60"/>
              <label >Password</label>
-             <input type="password" />
+             <input id="txtPasswordLogin" type="password" maxlength="40"/>
              <input type="submit" value="Login" />
 
            </fieldset>
@@ -34,11 +34,11 @@
         <div class="randompad">
            <fieldset>
            	 <label >Nombre</label>
-             <input type="text" placeholder="" maxlength="20" />
+             <input id="txtNombre" type="text" placeholder="" maxlength="40" />
              <label >Email</label>
-             <input type="email" placeholder="example@example.com" />
+             <input id="txtEmailRegistro" type="email" placeholder="example@example.com" maxlength="60" />
              <label >Password</label>
-             <input type="password" />
+             <input id="txtPasswordRegistro" type="password" maxlength="40" />
              <input type="submit" value="Register" />
 
            </fieldset>
@@ -51,9 +51,11 @@
 
 <div id="contenedor">
 	<div id="layout-izquierda">
-		<img alt="" src="imagenes/pokeball.png" id="image">
+	<div class="contenedor-imagen">
+		<img  id="image" alt="Pokémon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/33.png">
+		</div>
 		<div id="derecha">
-			<div id="contenedor-nombre">
+			<div id="contenedor-nombre" class="sombraGrande">
 				<div class="titulo">
 					<span class="icono"><img src="imagenes/pokeball-icon.png"></span>
 					<h2 id="id-pokemon">434</h2>
@@ -65,6 +67,16 @@
 			</div>
 			<div class="tipo blue">
 				<h2>fight</h2>
+			</div>
+			<div class="sombraGrande detalles">
+				<h2>Altura: </h2><br>
+				<h2>Peso: </h2>
+			</div>
+			
+		</div>
+		<div class="sombraGrande abajo descripcion">
+			<div class="borderojo">
+			<h2></h2>
 			</div>
 		</div>
 	</div>
