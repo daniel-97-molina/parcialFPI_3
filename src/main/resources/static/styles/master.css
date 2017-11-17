@@ -48,6 +48,9 @@ fieldset {
   position: absolute;
   top: -10px;
 }
+.arrow-up-right{
+	left: 35%;
+}
 
 .formholder {
   background: #ecf0f1;
@@ -55,7 +58,7 @@ fieldset {
   border-radius: 5px;
   padding-top: 5px;
 }
-.formholder input[type="email"], .formholder input[type="password"] {
+.formholder input{
   padding: 7px 5px;
   margin: 10px 0;
   width: 96%;
@@ -68,7 +71,7 @@ fieldset {
   -o-transition: 0.3s linear;
   transition: 0.3s linear;
 }
-.formholder input[type="email"]:focus, .formholder input[type="password"]:focus {
+.formholder input:focus {
   outline: none;
   box-shadow: 0 0 1px 1px #1abc9c;
 }

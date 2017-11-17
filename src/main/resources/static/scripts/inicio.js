@@ -6,10 +6,13 @@ $('input[type="submit"]').mouseup(function(){
 });
 
 $('#loginform').click(function(){
-  $('.login').fadeToggle('slow');
+  $('#login').fadeToggle('slow');
   $(this).toggleClass('green');
 });
-
+$('#registerform').click(function(){
+  $('#register').fadeToggle('slow');
+  $(this).toggleClass('green');
+});
 
 
 $(document).mouseup(function (e)
@@ -23,3 +26,17 @@ $(document).mouseup(function (e)
         $('#loginform').removeClass('green');
     }
 });
+
+var pokemon;
+
+function cargar(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      pokemon = JSON.parse(this.responseText);
+      console.log("Pokemon: "+pokemon.name);
+    }
+  };
+  xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/25/", true);
+  xhttp.send();
+}
