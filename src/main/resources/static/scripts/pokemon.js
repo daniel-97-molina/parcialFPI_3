@@ -16,7 +16,9 @@ function mostrarPropiedades() {
 	document.getElementById("name").innerHTML = pokemon.name;
 	document.getElementById("id-pokemon").innerHTML = pokemon.id;
 	document.getElementById("tipo1").innerHTML = pokemon.types[0].name;
-	document.getElementById("tipo1").innerHTML = pokemon.types[0].name;
+	document.getElementById("tipo2").innerHTML = pokemon.types[1].name;
+	documente.getElementById("image").src = pokemon.sprites.front_default;
+	
 
 	
 	

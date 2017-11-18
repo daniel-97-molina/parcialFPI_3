@@ -2,8 +2,8 @@ function loginRequest(){
   var userLoging = document.getElementById("txtemaillogin").value;
   var userPass = document.getElementById("txtpasswordlogin").value;
   var userRequest = new XMLHttpRequest();
-  userRequest.open('POST', '/logearse');
-  userRequest.onload = function() {
+  userRequest.open('POST', '/logearse);
+  userRequest.onload ntl= function(){
     if (userRequest.status >= 200 && userRequest.status < 400) {
       var userData = JSON.parse(userRequest.responseText);
     } else {
