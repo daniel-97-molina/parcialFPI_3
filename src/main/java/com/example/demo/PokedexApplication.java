@@ -10,8 +10,7 @@ public class PokedexApplication {
 		SpringApplication.run(PokedexApplication.class, args);
 		
 		Conector con = new Conector();
-		con.connect();
-		con.close();
+		
 	}
 	
 }

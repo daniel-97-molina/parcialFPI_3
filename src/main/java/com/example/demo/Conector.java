@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Conector {
-	String url = "usuario.db";
+	String url = "/home/danm/usuario.db";
 	Connection connect;
 
 	public void connect() {
@@ -32,20 +32,29 @@ public class Conector {
 	}
 
 	public Usuario buscarUsuarioByCorreo(String correo){
-
 	Usuario user = null;
 	try{
-		PreparedStatement st = connect.prepareStatement("select * from users where email='?'");
+		PreparedStatement st = connect.prepareStatement("SELECT * FROM users WHERE email=?");
+		st.setString(1, correo);
 		ResultSet rs = st.executeQuery();
 		while (rs.next()) {
-			user = new Usuario(0, rs.getString(0), rs.getString(1));
+			user = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
 		}
-
 	return user;
 	}catch(SQLException ex){
 		System.err.println(ex.getMessage());
-		return user;
+		return null;
 	}
+	}
+	
+	public Usuario loguearse(String email, String contrasena) {
+		Usuario user = buscarUsuarioByCorreo(email);
+		if(user != null) {
+			if(user.getContrasena() == contrasena) {
+				return user;
+			}
+		}
+		return user;
 	}
 
 	public int saveUsuario(String name, String email) {
@@ -55,6 +64,7 @@ public class Conector {
 			st.setString(2, email);
 			st.execute();
 			st = connect.prepareStatement("select from user where email = '?'");
+			//System.out.println(st.);
 			return 1;
 		} catch (SQLException ex) {
 			System.err.println(ex.getMessage());

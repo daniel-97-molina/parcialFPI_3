@@ -1,6 +1,5 @@
 package controller;
 
-
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,18 +13,58 @@ import com.example.demo.Usuario;
 
 public class Controller {
 
-	@Autowired 
+	@Autowired
 	Conector conexion;
-	
+
 	@PostMapping("/crearUsuario")
 	public int creandoUsuario(@RequestBody Usuario usuario) {
+		conexion.connect();
 		int resultado = conexion.saveUsuario(usuario.getName(), usuario.getEmail());
+		conexion.close();
 		return resultado;
 	}
-	
+
 	@PostMapping("/pokemonFavoritos")
-	public void ResponseEntity (@RequestBody ArrayList arreglo) {
-		conexion.saveFavoritos(Integer.parseInt(arreglo.get(0).toString()), (Integer.parseInt(arreglo.get(1).toString())));
-		}
+	public void favoritos(@RequestBody ArrayList<Object> arreglo) {
+		conexion.connect();
+		conexion.saveFavoritos(Integer.parseInt(arreglo.get(0).toString()),
+				(Integer.parseInt(arreglo.get(1).toString())));
+		conexion.close();
+		
 	}
-	
+
+	@PostMapping("/loguearse")
+	public Usuario loguearse(@RequestBody ArrayList<Object> arreglo) {
+		conexion.connect();
+		Usuario user = conexion.buscarUsuarioByCorreo(arreglo.get(0).toString());
+		if(user != null) {
+			if(user.getContrasena() == arreglo.get(1).toString()) {
+				return user;
+			}else {
+				return null;
+			}
+		}
+		conexion.close();
+		return user;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

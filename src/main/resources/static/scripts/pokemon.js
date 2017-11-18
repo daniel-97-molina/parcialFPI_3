@@ -5,7 +5,8 @@ function cargar(){
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       pokemon = JSON.parse(this.responseText);
-      console.log(pokemon);
+      console.log(pokemon)
+      mostrarPropiedades();
     }
   };
   xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/25/", true);
@@ -25,3 +26,49 @@ function mostrarPropiedades() {
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function get(objeto){
+	return document.querySelector(objeto);
+}
+
+get("#btnEvoluciones").onclick = function(){
+	get("#divHabilidades").style.display = "none"
+	get("#divEvoluciones").style.display = "block"
+}
+get("#btnHabilidades").onclick = function(){
+	get("#divHabilidades").style.display = "block"
+	get("#divEvoluciones").style.display = "none"
+}
+
