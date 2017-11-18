@@ -37,9 +37,11 @@ fieldset {
 }
 
 .login {
+	z-index: 100;
   position: relative;
   width: 350px;
   display: none;
+  box-shadow: 2px 2px 20px rgba(0,0,0,0.8);
 }
 
 .arrow-up {
@@ -207,7 +209,7 @@ a:hover {
 
 .detalles{
 	width: 300px;
-	margin-left: 5px;
+	margin-left: 8px;
 	box-sizing: border-box;
 	padding: 8px 0 0 20px;
 }
