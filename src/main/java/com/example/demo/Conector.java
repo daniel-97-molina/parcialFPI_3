@@ -28,16 +28,27 @@ public void connect(){
 	            Logger.getLogger(Conector.class.getName()).log(Level.SEVERE, null, ex);
 	        }
 	 }
- public void saveUsuario(String name, String email){
+ public int saveUsuario(String name, String email){
         try {
             PreparedStatement st = connect.prepareStatement("insert into users (name, email) values (?,?)");
             st.setString(1, name);
             st.setString(2, email);
             st.execute();
+            st = connect.prepareStatement("select from user where email = '?'");
+            return 1;
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
-        }
- 
+            return 0;
+        } 
     }
- 
+ public void saveFavoritos(int id, int id_pokemon) {
+	 try {
+         PreparedStatement st = connect.prepareStatement("insert into users_pokemon (id, id_pokemon) values (?,?)");
+         st.setInt(1, id);
+         st.setInt(2, id_pokemon);
+         st.execute();
+     } catch (SQLException ex) {
+         System.err.println(ex.getMessage());
+     } 
+}
 }
