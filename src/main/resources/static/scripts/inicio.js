@@ -27,6 +27,28 @@ $(document).mouseup(function (e)
     }
 });
 
+//NUESTRO CÓDIGO
+
+
+function get(objeto){
+	return document.querySelector(objeto);
+}
+
+get("#btnEvoluciones").onclick = function(){
+	get("#divHabilidades").style.display = "none"
+	get("#divEvoluciones").style.display = "block"
+}
+get("#btnHabilidades").onclick = function(){
+	get("#divHabilidades").style.display = "block"
+	get("#divEvoluciones").style.display = "none"
+}
+
+
+
+
+
+
+
 var pokemon;
 
 function cargar(){
@@ -40,3 +62,9 @@ function cargar(){
   xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/25/", true);
   xhttp.send();
 }
+
+
+
+
+
+

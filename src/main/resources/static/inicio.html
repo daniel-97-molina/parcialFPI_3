@@ -1,91 +1,134 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Pokédex</title>
-      <link rel="stylesheet" href="styles/master.css">
-      <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Pokédex</title>
+<link rel="stylesheet" href="styles/master.css">
+<link href="https://fonts.googleapis.com/css?family=VT323"
+	rel="stylesheet">
 </head>
 
 <body>
-  <div id="wrap">
-  <div id="regbar">
-    <div id="navthing">
-      <h2><a href="#" id="loginform">Login</a> | <a id="registerform" href="#">Registro</a></h2>
-      <input id="txtBusqueda" type="text" placeholder="busqueda...  ej: pikachu" >
-    <div class="login" id="login">
-      <div class="arrow-up"></div>
-      <div class="formholder">
-        <div class="randompad">
-           <fieldset>
-             <label >Email</label>
-             <input id="txtEmailLogin" type="email" placeholder="example@example.com" maxlength="60"/>
-             <label >Password</label>
-             <input id="txtPasswordLogin" type="password" maxlength="40"/>
-             <input type="submit" value="Login" />
+	<div id="wrap">
+		<div id="regbar">
+			<div id="navthing">
+				<h2>
+					<a href="#" id="loginform">Login</a> | <a id="registerform"
+						href="#">Registro</a>
+				</h2>
+				<input id="txtBusqueda" type="text"
+					placeholder="busqueda...  ej: pikachu">
+				<div class="login" id="login">
+					<div class="arrow-up"></div>
+					<div class="formholder">
+						<div class="randompad">
+							<fieldset>
+								<label>Email</label> <input id="txtEmailLogin" type="email"
+									placeholder="example@example.com" maxlength="60" /> <label>Password</label>
+								<input id="txtPasswordLogin" type="password" maxlength="40" />
+								<input type="submit" value="Login" />
 
-           </fieldset>
-        </div>
-      </div>
-    </div>
-    <div class="login" id="register">
-      <div class="arrow-up arrow-up-right"></div>
-      <div class="formholder">
-        <div class="randompad">
-           <fieldset>
-           	 <label >Nombre</label>
-             <input id="txtNombre" type="text" placeholder="" maxlength="40" />
-             <label >Email</label>
-             <input id="txtEmailRegistro" type="email" placeholder="example@example.com" maxlength="60" />
-             <label >Password</label>
-             <input id="txtPasswordRegistro" type="password" maxlength="40" />
-             <input type="submit" value="Register" />
-
-           </fieldset>
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
-</div>
-
-<div id="contenedor">
-	<div id="layout-izquierda">
-	<div class="contenedor-imagen">
-		<img  id="image" alt="Pokémon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/33.png">
-		</div>
-		<div id="derecha">
-			<div id="contenedor-nombre" class="sombraGrande">
-				<div class="titulo">
-					<span class="icono"><img src="imagenes/pokeball-icon.png"></span>
-					<h2 id="id-pokemon">434</h2>
+							</fieldset>
+						</div>
+					</div>
 				</div>
-				<h2>Pikachu</h2>
-			</div>
-			<div class="tipo">
-				<h2>poison</h2>
-			</div>
-			<div class="tipo blue">
-				<h2>fight</h2>
-			</div>
-			<div class="sombraGrande detalles">
-				<h2>Altura: </h2><br>
-				<h2>Peso: </h2>
-			</div>
-			
-		</div>
-		<div class="sombraGrande abajo descripcion">
-			<div class="borderojo">
-			<h2>Pikachu es un Pokémon de tipo eléctrico introducido en la primera generación. Es el Pokémon más conocido de la historia, mayormente por ser el acompañante del protagonista del anime, Ash... </h2>
-			</div>
-		</div>
-	</div>
-	<div id="layout-derecha">
-	</div>
-	
-</div>
+				<div class="login" id="register">
+					<div class="arrow-up arrow-up-right"></div>
+					<div class="formholder">
+						<div class="randompad">
+							<fieldset>
+								<label>Nombre</label> 
+								<input id="txtNombre" type="text"
+									placeholder="" maxlength="40" />
+									<label>Email</label> 
+									<input id="txtEmailRegistro" type="email" placeholder="example@example.com" 
+									maxlength="60" />
+									<label>Password</label>
+								<input id="txtPasswordRegistro" type="password" maxlength="40"/>
+								<input type="submit" value="Register" />
 
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script  src="scripts/inicio.js"></script>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="contenedor">
+		<div id="layout-izquierda">
+			<div class="contenedor-imagen">
+				<img id="image" alt="Pokémon"
+					src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/33.png">
+				<fieldset class="tipo habitat">
+					<legend>Hábitat</legend>
+					<h2 id="habitat">Bosque</h2>
+				</fieldset>
+			</div>
+			<div id="derecha">
+				<div id="contenedor-nombre" class="sombraGrande">
+					<div class="titulo">
+						<span class="icono"><img src="imagenes/pokeball-icon.png"></span>
+						<h2 id="id-pokemon">434</h2>
+					</div>
+					<h2 id="name">Pikachu</h2>
+				</div>
+				<div class="tipo">
+					<h2 id="tipo1">poison</h2>
+				</div>
+				<div class="tipo blue">
+					<h2 id="tipo2">fight</h2>
+				</div>
+				<div class="sombraGrande detalles">
+					<h2 id="altura">Altura:</h2>
+					<br>
+					<h2 id="peso">Peso:</h2>
+				</div>
+
+			</div>
+			<div class="sombraGrande abajo descripcion">
+				<div class="borderojo">
+					<h2>Pikachu es un Pokémon de tipo eléctrico introducido en la
+						primera generación. Es el Pokémon más conocido de la historia,
+						mayormente por ser el acompañante del protagonista del anime,
+						Ash...</h2>
+				</div>
+			</div>
+		</div>
+		<div id="layout-derecha">
+			<input id="btnHabilidades" type="button" value="Habilidades"
+				class="btn"> <input id="btnEvoluciones" type="button"
+				value="Evoluciones" class="btn">
+			<div id="divHabilidades">
+				<fieldset id="fieldHabilidades">
+					<legend>Habilidades</legend>
+					<h2>Impactrueno</h2>
+					<h2>Estática</h2>
+					<h2>Cola de hierro</h2>
+					<h2>Impactrueno</h2>
+				</fieldset>
+				<fieldset id="fieldMovimientos">
+					<legend>Movimientos</legend>
+					<h2>Impactrueno</h2>
+					<h2>Estática</h2>
+					<h2>Cola de hierro</h2>
+					<h2>Impactrueno</h2>
+				</fieldset>
+			</div>
+			<div id="divEvoluciones">
+				<a class="pokemonEvolucion"> <img src="imagenes/pokeball.png">
+					<h2>Pichu</h2></a> <a class="pokemonEvolucion"> <img
+					src="imagenes/pokeball.png">
+					<h2>Pikachu</h2>
+				</a> <a class="pokemonEvolucion"> <img src="imagenes/pokeball.png">
+					<h2>Raichu</h2>
+				</a>
+			</div>
+
+		</div>
+
+		<script
+			src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="scripts/inicio.js"></script>
 </body>
 </html>

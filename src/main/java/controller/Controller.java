@@ -1,5 +1,6 @@
 package controller;
 
+
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ public class Controller {
 	
 	@PostMapping("/crearUsuario")
 	public int creandoUsuario(@RequestBody Usuario usuario) {
-		int user = conexion.saveUsuario(usuario.getName(), usuario.getEmail());
-		return user;
+		int resultado = conexion.saveUsuario(usuario.getName(), usuario.getEmail());
+		return resultado;
 	}
 	
 	@PostMapping("/pokemonFavoritos")
