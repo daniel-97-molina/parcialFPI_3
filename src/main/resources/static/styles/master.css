@@ -126,6 +126,7 @@ a:hover {
 	border-radius: 15px;
 }
 #layout-izquierda{
+	display: none;
 	float: left;
 	position: relative;
 	padding: 10px;
@@ -136,6 +137,7 @@ a:hover {
 	border-radius: 15px 0 0 15px;
 }
 #layout-derecha{
+	display: none;
 	float: left;
 	padding:0px;
 	box-sizing: border-box;
@@ -155,11 +157,11 @@ a:hover {
 }
 
 #image{
-	top: -30px;
+	top: -25px;
 	position: absolute;
-	width: 300px;
+	width: 265px;
 	height: auto;
-	left: -33px;
+	left: -25px;
 }
 
 
@@ -198,6 +200,9 @@ a:hover {
 	height: 30px;
 	position: relative;
 	top: 1px;
+}
+#divTipo2{
+	display: none;
 }
 .tipo{
 	font-size: 25px;
@@ -255,6 +260,7 @@ a:hover {
 	cursor: pointer;
 	background-color: #FF8000;
 }
+
 #fieldHabilidades{
 	width: 89%;
 	margin: 10px;
@@ -280,6 +286,7 @@ fieldset{
 }
 
 .habitat{
+	height: 50px;
 	width: 190px;
 	position: absolute;
 	bottom: 0;
@@ -311,6 +318,10 @@ fieldset{
 	margin: 11px;
 }
 
+#inicio{
+	text-align: center;
+	padding-top: 40px;
+}
 
 
 
