@@ -27,41 +27,6 @@ $(document).mouseup(function (e)
     }
 });
 
-//NUESTRO CÓDIGO
-
-
-function get(objeto){
-	return document.querySelector(objeto);
-}
-
-get("#btnEvoluciones").onclick = function(){
-	get("#divHabilidades").style.display = "none"
-	get("#divEvoluciones").style.display = "block"
-}
-get("#btnHabilidades").onclick = function(){
-	get("#divHabilidades").style.display = "block"
-	get("#divEvoluciones").style.display = "none"
-}
-
-
-
-
-
-
-
-var pokemon;
-
-function cargar(){
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      pokemon = JSON.parse(this.responseText);
-      console.log("Pokemon: "+pokemon.name);
-    }
-  };
-  xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/25/", true);
-  xhttp.send();
-}
 
 
 

@@ -10,9 +10,6 @@ public class PokedexApplication {
 		SpringApplication.run(PokedexApplication.class, args);
 		
 		Conector con = new Conector();
-		con.connect();
-		con.buscarUsuarioByCorreo("daniel@gmail.com");
-		con.close();
 		
 	}
 	
