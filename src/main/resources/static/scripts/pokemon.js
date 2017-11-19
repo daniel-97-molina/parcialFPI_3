@@ -9,16 +9,18 @@ function cargar(){
       mostrarPropiedades();
     }
   };
-  xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/25/", true);
+  xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/256/", true);
   xhttp.send();
 }
 
 function mostrarPropiedades() {
 	document.getElementById("name").innerHTML = pokemon.name;
 	document.getElementById("id-pokemon").innerHTML = pokemon.id;
-	document.getElementById("tipo1").innerHTML = pokemon.types[0].name;
-	document.getElementById("tipo2").innerHTML = pokemon.types[1].name;
-	documente.getElementById("image").src = pokemon.sprites.front_default;
+	document.getElementById("tipo1").innerHTML = pokemon.types[0].type.name;
+	if(pokemon.types.length > 1){
+	document.getElementById("tipo2").innerHTML = pokemon.types[1].type.name;
+	}
+	document.getElementById("image").src = pokemon.sprites.front_default;
 	
 
 	
