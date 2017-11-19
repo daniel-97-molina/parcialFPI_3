@@ -126,6 +126,7 @@ a:hover {
 	border-radius: 15px;
 }
 #layout-izquierda{
+	float: left;
 	position: relative;
 	padding: 10px;
 	box-sizing: border-box; 
@@ -134,26 +135,34 @@ a:hover {
 	height: 100%;
 	border-radius: 15px 0 0 15px;
 }
-
+#layout-derecha{
+	float: left;
+	padding:0px;
+	box-sizing: border-box;
+	width: 35%;
+	height: 100%;
+}
 
 
 
 
 
 .contenedor-imagen{
+	position: relative;
 	float:left;
 	width: 40%;
 	height: 300px;
 }
 
 #image{
-	top: -15px;
+	top: -30px;
 	position: absolute;
 	width: 300px;
 	height: auto;
-	left: -25px;
-	
+	left: -33px;
 }
+
+
 #derecha{
 	padding: 10px;
 	float: left;
@@ -231,11 +240,76 @@ a:hover {
 	
 }
 
+.btn{
+	width: 140px;
+	margin-top: 2px;
+	margin-left: 12px;
+	background-color: #FA8258;
+	border-radius: 5px;
+	border: 3px solid #585858;
+	padding: 4px;
+	font-size: 25px;
+	
+}
+.btn:hover{
+	cursor: pointer;
+	background-color: #FF8000;
+}
+#fieldHabilidades{
+	width: 89%;
+	margin: 10px;
+	height: auto;
+	padding: 10px;
+}
 
+#fieldMovimientos{
+	width: 89%;
+	margin:10px;
+	height: auto;
+	padding: 10px;
+}
 
+fieldset h2{
+	display: block;
+}
 
+fieldset{
+	border: 2px solid gray;
+	width: 90%;
+	padding: 10px;
+}
 
+.habitat{
+	width: 190px;
+	position: absolute;
+	bottom: 0;
+	margin: 0 0 10px 10px;
+}
 
+#divEvoluciones{
+	padding: 15px;
+	display: none;
+}
+
+.pokemonEvolucion{
+	margin: 15px 0; 
+	height: 50px;
+	display: block;
+}
+
+.pokemonEvolucion:hover{
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.1);
+}
+
+.pokemonEvolucion img{
+	float: left;
+	height: 50px;
+	width: 50px;
+}
+.pokemonEvolucion h2{
+	margin: 11px;
+}
 
 
 
