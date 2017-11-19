@@ -1,17 +1,21 @@
-package controller;
+package com.example.demo.controlador;
 
 import java.util.ArrayList;
+import org.springframework.stereotype.Controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Conector;
 import com.example.demo.Usuario;
 
-@org.springframework.stereotype.Controller
-
-public class Controller {
+@RestController
+public class Controlador {
 
 	@Autowired
 	Conector conexion;
@@ -46,6 +50,11 @@ public class Controller {
 		}
 		conexion.close();
 		return user;
+	}
+	
+	@GetMapping("/prueba")
+	public String prueba() {
+		return "MEGA EXITOOOO!";
 	}
 }
 

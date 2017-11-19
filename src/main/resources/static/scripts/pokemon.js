@@ -87,16 +87,8 @@ function cargarEvoluciones(path) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			evolucion = JSON.parse(this.responseText);
+			var evolucion = JSON.parse(this.responseText);
 			console.log(evolucion);
-			if (especie.habitat != null && especie.habitat != "undefined") {
-				$("#specie").innerHTML = especie.habitat.name;
-			} else {
-				$("#specie").innerHTML = "Desconocido";
-			}
-
-			// Para la generacion
-			$("#generacion").innerHTML = especie.generation.name;
 
 			// Para la evolucion 1
 			$("#evolucion1").innerHTML = evolucion.chain.species.name;

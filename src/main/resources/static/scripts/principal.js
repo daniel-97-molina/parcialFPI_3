@@ -1,38 +1,32 @@
-function loginRequest(){
-  var userLoging = document.getElementById("txtemaillogin").value;
-  var userPass = document.getElementById("txtpasswordlogin").value;
+get("#btnLogin").onclick = function() {
+  var email = document.getElementById("txtEmailLogin").value;
+  var password = document.getElementById("txtPasswordLogin").value;
   var userRequest = new XMLHttpRequest();
-  userRequest.open('POST', '/logearse);
-  userRequest.onload ntl= function(){
-    if (userRequest.status >= 200 && userRequest.status < 400) {
-      var userData = JSON.parse(userRequest.responseText);
-    } else {
-      console.log("Se conectó con el servidor pero ocurrió un error");
-    }
+  
+  userRequest.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+		  var respuesta = JSON.parse(this.responseText);
+		  console.log("respuesta: "+respuesta);
+	  }
   };
-    userRequest.onerror = function() {
-      console.log("Error al conectar con el servidor");
-    };
-    userRequest.send();
-  }
-
+  
+  userRequest.open('POST', '/loguearse');
+  userRequest.send();
+}
 
 function RegistrarRequest(){
-	  var userPass = document.getElementById("txtnombre").value;
-	  var userLoging = document.getElementById("txtemailresgistro").value;
-	  var userPass = document.getElementById("txtpasswordresgistro").value;
+	  var nombre = document.getElementById("txtNombre").value;
+	  var email = document.getElementById("txtEmailResgistro").value;
+	  var password = document.getElementById("txtPasswordRegistro").value;
 	  var userRequest = new XMLHttpRequest();
-	  userRequest.open('POST', '/crearUsuario');
-	  userRequest.onload = function() {
-	    if (userRequest.status >= 200 && userRequest.status < 400) {
-	      var userData = JSON.parse(userRequest.responseText);
-	      
-	    } else {
-	      console.log("Se conectó con el servidor pero ocurrió un error");
-	    }
+	  
+	  var xhttp = new XMLHttpRequest();
+	  userRequest.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+			  var respuesta = JSON.parse(this.responseText);
+			  console.log(respuesta);
+		  }
 	  };
-	    userRequest.onerror = function() {
-	      console.log("Error al conectar con el servidor");
-	    };
-	    userRequest.send();
-	  }
+	  userRequest.open('POST', '/logearse');
+	  userRequest.send([nombre]);
+}
