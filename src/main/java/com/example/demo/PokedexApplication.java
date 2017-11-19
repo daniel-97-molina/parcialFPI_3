@@ -11,7 +11,9 @@ public class PokedexApplication {
 		
 		Conector con = new Conector();
 		con.connect();
+		con.buscarUsuarioByCorreo("daniel@gmail.com");
 		con.close();
+		
 	}
 	
 }

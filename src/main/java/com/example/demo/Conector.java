@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Conector {
-	String url = "usuario.db";
+	String url = "/home/danm/usuario.db";
 	Connection connect;
 
 	public void connect() {
@@ -32,19 +32,18 @@ public class Conector {
 	}
 
 	public Usuario buscarUsuarioByCorreo(String correo){
-
 	Usuario user = null;
 	try{
-		PreparedStatement st = connect.prepareStatement("select * from users where email='?'");
+		PreparedStatement st = connect.prepareStatement("SELECT * FROM users WHERE email=?");
+		st.setString(1, "daniel@gmail.com");
 		ResultSet rs = st.executeQuery();
 		while (rs.next()) {
-			user = new Usuario(0, rs.getString(0), rs.getString(1));
+			user = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3));
 		}
-
 	return user;
 	}catch(SQLException ex){
 		System.err.println(ex.getMessage());
-		return user;
+		return null;
 	}
 	}
 

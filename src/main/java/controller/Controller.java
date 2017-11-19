@@ -19,13 +19,17 @@ public class Controller {
 	
 	@PostMapping("/crearUsuario")
 	public int creandoUsuario(@RequestBody Usuario usuario) {
+		conexion.connect();
 		int resultado = conexion.saveUsuario(usuario.getName(), usuario.getEmail());
+		conexion.close();
 		return resultado;
 	}
 	
 	@PostMapping("/pokemonFavoritos")
 	public void ResponseEntity (@RequestBody ArrayList arreglo) {
+		conexion.connect();
 		conexion.saveFavoritos(Integer.parseInt(arreglo.get(0).toString()), (Integer.parseInt(arreglo.get(1).toString())));
+		conexion.close();
 		}
 	}
 	
