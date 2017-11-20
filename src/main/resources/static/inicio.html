@@ -13,23 +13,31 @@
 	<div id="wrap">
 		<div id="regbar">
 			<div id="navthing">
-				<h2>
+				<h2 id="loginRegistro">
 					<a href="#" id="loginform">Login</a> | <a id="registerform"
 						href="#">Registro</a>
 				</h2>
+<<<<<<< HEAD
 				<input id="txtBusqueda" type="text" placeholder="busqueda...  ej: pikachu" list="lista" onkeypress="return llenarPokemon(event)">
 				<datalist id="lista"></datalist>
+=======
+				<h2 id="usuarioLogueado"></h2>
+				<input id="txtBusqueda" type="text" placeholder="busqueda...  ej: pikachu">
+>>>>>>> d162bf007bcc48463c5ea7e1b977f2eb89f122da
 				<div class="login" id="login">
 					<div class="arrow-up"></div>
 					<div class="formholder">
 						<div class="randompad">
 							<fieldset>
-								<label>Email</label> 
-								<input id="txtEmailLogin" type="email" placeholder="example@example.com" maxlength="60"/>
+							<form id="formLogin">
+								<h2 id="errorLogin"></h2>
+								<label>Email</label>
+								<input id="txtEmailLogin" type="email" placeholder="example@example.com" 
+								maxlength="60" required/>
 								<label>Password</label>
-								<input id="txtPasswordLogin" type="password" maxlength="40" />
+								<input id="txtPasswordLogin" type="password" maxlength="40" required />
 								<input id="btnLogin" type="submit" value="Login" />
-
+							</form>
 							</fieldset>
 						</div>
 					</div>
@@ -39,16 +47,17 @@
 					<div class="formholder">
 						<div class="randompad">
 							<fieldset>
+							<form id="formRegistro">
+							<h2 id="errorRegistro"></h2>
 								<label>Nombre</label> 
-								<input id="txtNombre" type="text"
-									placeholder="" maxlength="40" />
+								<input id="txtNombre" type="text" maxlength="40" required />
 									<label>Email</label> 
 									<input id="txtEmailRegistro" type="email" placeholder="example@example.com" 
-									maxlength="60" />
+									maxlength="60" required />
 									<label>Password</label>
-								<input id="txtPasswordRegistro" type="password" maxlength="40"/>
-								<input type="submit" value="Register" />
-
+								<input id="txtPasswordRegistro" type="password" maxlength="40" required/>
+								<input id="btnRegistro" type="submit" value="Registrarme" />
+							</form>
 							</fieldset>
 						</div>
 					</div>
@@ -121,6 +130,10 @@
 			src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="scripts/inicio.js"></script>
 		<script src="scripts/pokemon.js"></script>
+<<<<<<< HEAD
 		
+=======
+		<script src="scripts/principal.js"></script>
+>>>>>>> d162bf007bcc48463c5ea7e1b977f2eb89f122da
 </body>
 </html>

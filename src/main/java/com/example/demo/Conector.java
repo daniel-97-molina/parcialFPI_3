@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Conector {
 	String url = "/home/danm/usuario.db";
 	Connection connect;
@@ -57,19 +60,24 @@ public class Conector {
 		return user;
 	}
 
-	public int saveUsuario(String name, String email) {
+	public Usuario saveUsuario(String name, String email, String password) {
+		Usuario user = new Usuario(null,null,null,null);
 		try {
-			PreparedStatement st = connect.prepareStatement("insert into users (name, email) values (?,?)");
+			if(buscarUsuarioByCorreo(email)==null) {
+			PreparedStatement st = connect.prepareStatement("insert into users (name, email, contraseña) values (?,?,?)");
 			st.setString(1, name);
 			st.setString(2, email);
+			st.setString(3, password);
 			st.execute();
-			st = connect.prepareStatement("select from user where email = '?'");
-			//System.out.println(st.);
-			return 1;
+			user = buscarUsuarioByCorreo(email);
+			}else {
+				 user = new Usuario(null,null,null,null);
+			}
 		} catch (SQLException ex) {
 			System.err.println(ex.getMessage());
-			return 0;
+			 user = new Usuario(null,null,null,null);
 		}
+		return user;
 	}
 
 	public void saveFavoritos(int id, int id_pokemon) {
