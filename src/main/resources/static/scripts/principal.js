@@ -1,12 +1,3 @@
-window.onload = function(){
-	if(document.cookie.length>0){
-		get("#loginRegistro").style.display = "none";
-		get("#usuarioLogueado").innerHTML = document.cookie.split(",")[1];
-		get("#usuarioLogueado").style.display = "inline-block";
-		get("#register").style.display ="none";
-	}
-};
-
 
 get("#formRegistro").onsubmit = function(e){
 	  

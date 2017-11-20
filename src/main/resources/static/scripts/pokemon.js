@@ -145,20 +145,23 @@ function EvolucionURL(idDeseado, areaDivEvoluciones, nombre){
 /////////////////// Metodo que crea los divs//////////////////////////////////////////////////////////////////
 
 function GenerarDivEvolucion(divPrincipal, ruta, nombre, idDeseado) {
-var divEvolucion = document.createElement("DIV");
-var divEvolucionImg = document.createElement("DIV");
-var divEvolucionName = document.createElement("DIV");
-var hTitulo = document.createElement("H1");
-var iImg = document.createElement("IMG");
-var eName = document.createTextNode(nombre);
-iImg.setAttribute("src",ruta);
-divEvolucion.setAttribute("onclick", "nuevoPokemon("+idDeseado+")")
-hTitulo.appendChild(eName);
-divEvolucionImg.appendChild(iImg);
-divEvolucionName.appendChild(hTitulo);
-divEvolucion.appendChild(divEvolucionImg);
-divEvolucion.appendChild(divEvolucionName);
-divPrincipal.appendChild(divEvolucion);
+//var divEvolucion = document.createElement("DIV");
+//var divEvolucionImg = document.createElement("DIV");
+//var divEvolucionName = document.createElement("DIV");
+//var hTitulo = document.createElement("H1");
+//var iImg = document.createElement("IMG");
+//var eName = document.createTextNode(nombre);
+//iImg.setAttribute("src",ruta);
+//divEvolucion.setAttribute("onclick", "nuevoPokemon("+idDeseado+")")
+//hTitulo.appendChild(eName);
+//divEvolucionImg.appendChild(iImg);
+//divEvolucionName.appendChild(hTitulo);
+//divEvolucion.appendChild(divEvolucionImg);
+//divEvolucion.appendChild(divEvolucionName);
+//divPrincipal.appendChild(divEvolucion);
+	
+	//get("#divEvoluciones").innerHTML = "";
+	
 }
 
 var pokecomply = new Array();
@@ -175,6 +178,12 @@ xmlhttp.onreadystatechange = function() {
 };
 xmlhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/?limit=802" , true);
 xmlhttp.send();
+if(document.cookie.length>0){
+	get("#loginRegistro").style.display = "none";
+	get("#usuarioLogueado").innerHTML = document.cookie.split(",")[1];
+	get("#usuarioLogueado").style.display = "inline-block";
+	get("#register").style.display ="none";
+}
 }
 
 function creadorDeListas(pokecomply){
