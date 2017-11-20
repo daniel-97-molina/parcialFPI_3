@@ -6,18 +6,33 @@ private String  name;
 private String email;
 private String contrasena;
 
-public String getContrasena() {
-	return contrasena;
-}
-
-public void setContrasena(String contrasena) {
-	this.contrasena = contrasena;
-}
 
 public Usuario(Integer id, String name, String email, String contrasena) {
 	this.id= id;
 	this.name = name;
 	this.email = email;
+	this.contrasena = contrasena;
+}
+public Usuario() {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public String getContrasena() {
+	return contrasena;
+}
+
+public void setContrasena(String contrasena) {
 	this.contrasena = contrasena;
 }
 

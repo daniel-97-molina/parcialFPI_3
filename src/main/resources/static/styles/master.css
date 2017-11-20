@@ -323,7 +323,16 @@ fieldset{
 	padding-top: 40px;
 }
 
+.randompad fieldset{
+	border: none;
+}
+#errorLogin, #errorRegistro{
+	display: none;
+	color: gray;
+}
 
-
+#usuarioLogueado{
+	display: none;
+}
 
 
