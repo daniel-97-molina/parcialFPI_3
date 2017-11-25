@@ -34,6 +34,21 @@ public class Conector {
 		}
 	}
 
+	public String buscarPokemonByIdUsuario(Integer idUsuario){
+		try{
+			String pokemons = "";
+			PreparedStatement st = connect.prepareStatement("SELECT * FROM users_pokemon WHERE id=?");
+			st.setString(1, idUsuario)
+			ResultSet rs = st.executeQuery();
+			while (rs.next()){
+				pokemons += rs.getString(3)+",";
+			}
+			return pokemons;
+		}catch(SQLException ex){
+			System.err.println(ex.getMessage());
+			return "";
+		}
+	}
 	public Usuario buscarUsuarioByCorreo(String correo){
 	Usuario user = null;
 	try{
@@ -49,7 +64,7 @@ public class Conector {
 		return null;
 	}
 	}
-	
+
 	public Usuario loguearse(String email, String contrasena) {
 		Usuario user = buscarUsuarioByCorreo(email);
 		if(user != null) {
