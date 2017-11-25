@@ -16,9 +16,9 @@
 					<a href="#" id="loginform">Login</a> | <a id="registerform"
 						href="#">Registro</a>
 				</h2>
+				<h2 id="usuarioLogueado"></h2>
 				<input id="txtBusqueda" type="text" placeholder="busqueda...  ej: pikachu" list="lista" onkeypress="return llenarPokemon(event)">
 				<datalist id="lista"></datalist>
-				<h2 id="usuarioLogueado"></h2>
 				<div class="login" id="login">
 					<div class="arrow-up"></div>
 					<div class="formholder">
@@ -27,7 +27,7 @@
 							<form id="formLogin">
 								<h2 id="errorLogin"></h2>
 								<label>Email</label>
-								<input id="txtEmailLogin" type="email" placeholder="example@example.com" 
+								<input id="txtEmailLogin" type="email" placeholder="example@example.com"
 								maxlength="60" required/>
 								<label>Password</label>
 								<input id="txtPasswordLogin" type="password" maxlength="40" required />
@@ -44,10 +44,10 @@
 							<fieldset>
 							<form id="formRegistro">
 							<h2 id="errorRegistro"></h2>
-								<label>Nombre</label> 
+								<label>Nombre</label>
 								<input id="txtNombre" type="text" maxlength="40" required />
-									<label>Email</label> 
-									<input id="txtEmailRegistro" type="email" placeholder="example@example.com" 
+									<label>Email</label>
+									<input id="txtEmailRegistro" type="email" placeholder="example@example.com"
 									maxlength="60" required />
 									<label>Password</label>
 								<input id="txtPasswordRegistro" type="password" maxlength="40" required/>
@@ -79,6 +79,7 @@
 					<div class="titulo">
 						<span class="icono"><img src="imagenes/pokeball-icon.png"></span>
 						<h2 id="id-pokemon"></h2>
+						<span id="contenedorBtnFavorito" ><img id="btnFavorito" class="bw" src="imagenes/star.png"></span>
 					</div>
 					<h2 id="name"></h2>
 				</div>
@@ -116,7 +117,7 @@
 				</fieldset>
 			</div>
 			<div id="divEvoluciones">
-				
+
 			</div>
 
 		</div>

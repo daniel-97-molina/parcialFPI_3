@@ -25,11 +25,12 @@ public class Controlador {
 		return user;
 	}
 
-	@PostMapping("/pokemonFavoritos")
-	public void favoritos(@RequestBody ArrayList<Object> arreglo) {
+	@RequestMapping(value = "/pokemonFavoritos", method = RequestMethod.POST)
+	public void favoritos(@RequestBody String s) {
 		conexion.connect();
-		conexion.saveFavoritos(Integer.parseInt(arreglo.get(0).toString()),
-				(Integer.parseInt(arreglo.get(1).toString())));
+		String idUsuario = s.split(",")[0];
+		String idPokemon = s.split(",")[1];
+		conexion.saveFavoritos(Integer.parseInt(idUsuario),Integer.parseInt(idPokemon));
 		conexion.close();
 		
 	}
