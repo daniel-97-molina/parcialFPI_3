@@ -23,6 +23,7 @@ function cargar(id) {
 	get("#inicio").style.display = "none";
 	get("#layout-izquierda").style.display = "block";
 	get("#layout-derecha").style.display = "block";
+	get("#divEvoluciones").innerHTML = "";
 	idEvoluciones = [];
 	evolutionArray = [];
 	cantidadEv = 0;
@@ -160,7 +161,9 @@ function GenerarDivEvolucion(divPrincipal, ruta, nombre, idDeseado) {
 //divEvolucion.appendChild(divEvolucionName);
 //divPrincipal.appendChild(divEvolucion);
 	
-	//get("#divEvoluciones").innerHTML = "";
+	get("#divEvoluciones").innerHTML += "<div class='pokemonEvolucion' onclick='nuevoPokemon("+idDeseado+")' >" +
+			"<img src='"+ruta+"'><h2>"+nombre+"</h2></div>";
+	
 	
 }
 

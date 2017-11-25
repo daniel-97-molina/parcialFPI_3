@@ -296,12 +296,15 @@ fieldset{
 #divEvoluciones{
 	padding: 15px;
 	display: none;
+	overflow: scroll;
+	height: 420px;
 }
 
 .pokemonEvolucion{
 	margin: 15px 0; 
-	height: 50px;
+	height: 80px;
 	display: block;
+	width: 100%;
 }
 
 .pokemonEvolucion:hover{
@@ -311,11 +314,11 @@ fieldset{
 
 .pokemonEvolucion img{
 	float: left;
-	height: 50px;
-	width: 50px;
+	height: 80px;
+	width: 80px;
 }
 .pokemonEvolucion h2{
-	margin: 11px;
+	margin-top: 25px;
 }
 
 #inicio{
