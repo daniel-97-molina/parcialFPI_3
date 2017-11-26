@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,12 +13,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Conector {
-	String url = "/home/danm/usuario.db";
+	
+
 	Connection connect;
 
 	public void connect() {
 		try {
-			connect = DriverManager.getConnection("jdbc:sqlite:" + url);
+			connect = DriverManager.getConnection("jdbc:sqlite:src/main/java/com/example/demo/usuario.db");
 			if (connect != null) {
 				System.out.println("Conectado");
 			}

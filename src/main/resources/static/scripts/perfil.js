@@ -5,7 +5,7 @@ function evaluar(){
 		location.href = "inicio.html"
 	}else{
 		document.getElementById("usuarioLogueado").innerHTML = document.cookie.split(",")[1];
-		document.getElementById("usuarioLogueado").style.display = "block"
+		document.getElementById("usuarioLogueado").style.display = "inline-block"
 	}
 }
 evaluar();
