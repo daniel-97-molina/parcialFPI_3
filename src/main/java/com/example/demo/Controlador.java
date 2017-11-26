@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,18 +41,26 @@ public class Controlador {
 	public Usuario loguearse(@RequestBody Usuario usuario) {
 		conexion.connect();
 		Usuario user = conexion.buscarUsuarioByCorreo(usuario.getEmail());
-		if(user != null) {
+		if(user.getId() != null) {
 			if(!user.getContrasena().equals(usuario.getContrasena())) {
 				System.out.println("-"+user.getContrasena()+"-");
 				System.out.println("-"+usuario.getContrasena()+"-");
 				user = new Usuario(null,null,null,null);
 			}
 		}else {
-			//user = new Usuario(null,null,null,null);
+			user = new Usuario(null,null,null,null);
 		}
 		conexion.close();
 		return user;
 	}
+	
+	@GetMapping("/favoritosByUsuario/{id}")
+	public String favoritosByUsuario(@PathVariable int id) {
+			conexion.connect();
+			String resultado = conexion.buscarPokemonByIdUsuario(id);
+			conexion.close();
+			return resultado;
+		}
 	
 }
 

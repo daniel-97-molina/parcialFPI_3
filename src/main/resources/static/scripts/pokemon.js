@@ -9,6 +9,7 @@ var idActual;
 
 
 function cargar(id) {
+	idActual = id;
   //limpiar controles
   get("#name").innerHTML = "";
   get("#id-pokemon").innerHTML = "";
@@ -211,7 +212,6 @@ function llenarPokemon(e) {
       var optionS = document.getElementsByName(buscador);
       var pokeIdS = optionS[0].getAttribute("id");
       var pokeId = parseInt(pokeIdS) + 1;
-      idActual = pokeId;
       cargar(pokeId);
     } else {
       alert("Busqueda no válida")
@@ -248,7 +248,7 @@ get("#btnHabilidades").onclick = function() {
 };
 
 get("#formRegistro").onsubmit = function(e) {
-
+  
   var nombre = get("#txtNombre").value;
   var email = document.getElementById("txtEmailRegistro").value;
   var password = document.getElementById("txtPasswordRegistro").value;
@@ -259,11 +259,12 @@ get("#formRegistro").onsubmit = function(e) {
       var respuesta = JSON.parse(this.responseText);
       console.log(respuesta);
       if (respuesta.id === null) {
+    	  
         get("#errorRegistro").innerHTML = "Correo ya registrado";
         get("#errorRegistro").style.display = "block";
       } else {
         var date = new Date();
-        date.setTime(date.getTime() + (15 * 1000));
+        date.setTime(date.getTime() + (60 * 1000));
         var expires = "; expires=" + date.toGMTString();
         document.cookie = "usuarioLogueado=" + [respuesta.id, respuesta.name, respuesta.email] + expires;
         get("#loginRegistro").style.display = "none";
@@ -274,6 +275,7 @@ get("#formRegistro").onsubmit = function(e) {
       }
     }
   };
+  
   userRequest.open('POST', '/crearUsuario');
   userRequest.setRequestHeader("Content-Type", "application/json");
   userRequest.setRequestHeader("Accept", "application/json");
@@ -295,6 +297,7 @@ function actualizarLogin(){
 }
 
 get("#formLogin").onsubmit = function(e) {
+	e.preventDefault();
   var email = document.getElementById("txtEmailLogin").value;
   var password = document.getElementById("txtPasswordLogin").value;
   var userRequest = new XMLHttpRequest();
@@ -304,12 +307,12 @@ get("#formLogin").onsubmit = function(e) {
       var respuesta = JSON.parse(this.responseText);
       console.log(respuesta);
       if (respuesta.id === null) {
-        e.preventDefault();
+        
         get("#errorLogin").innerHTML = "Contraseña o correo incorrecto";
         get("#errorLogin").style.display = "block";
       } else {
         var date = new Date();
-        date.setTime(date.getTime() + (15 * 1000));
+        date.setTime(date.getTime() + (60 * 1000));
         var expires = "; expires=" + date.toGMTString();
         document.cookie = "usuarioLogueado=" + [respuesta.id, respuesta.name, respuesta.email] + expires;
         get("#loginRegistro").style.display = "none";
@@ -320,6 +323,7 @@ get("#formLogin").onsubmit = function(e) {
       }
     }
   };
+  e.preventDefault();
   userRequest.open('POST', '/loguearse');
   userRequest.setRequestHeader("Content-Type", "application/json");
   userRequest.setRequestHeader("Accept", "application/json");
@@ -334,13 +338,9 @@ get("#formLogin").onsubmit = function(e) {
 get("#btnFavorito").onclick = function() {
     
     if (document.cookie.length > 0) {
-    	this.className = "";
+      this.className = "";
       var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-        	
-        }
-      };
+      
       xhttp.open("POST", "/pokemonFavoritos", true);
 			var idUsuario = document.cookie.split(",")[0];
 			idUsuario = idUsuario.split("usuarioLogueado=")[1];

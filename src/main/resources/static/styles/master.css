@@ -358,7 +358,28 @@ fieldset{
 	filter: grayscale(100%);
 }
 
-
+.divContenedor{
+	float: left;
+	width: 23%;
+	height: 220px;
+	box-shadow: 0 0 10px black;
+	border-radius: 8px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+.divContenedor h2{
+	padding-left: 10px !important;
+}
+.divContenedor img{
+	display: block;
+	width: 80%;
+	height: auto;
+	margin: auto;
+}
+.tituloPerfil{
+	display: block;
+	text-align: center;
+}
 
 
 

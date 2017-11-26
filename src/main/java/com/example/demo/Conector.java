@@ -38,7 +38,7 @@ public class Conector {
 		try{
 			String pokemons = "";
 			PreparedStatement st = connect.prepareStatement("SELECT * FROM users_pokemon WHERE id=?");
-			st.setString(1, idUsuario)
+			st.setInt(1, idUsuario);
 			ResultSet rs = st.executeQuery();
 			while (rs.next()){
 				pokemons += rs.getString(3)+",";
@@ -50,7 +50,7 @@ public class Conector {
 		}
 	}
 	public Usuario buscarUsuarioByCorreo(String correo){
-	Usuario user = null;
+	Usuario user = new Usuario(null,null,null,null);
 	try{
 		PreparedStatement st = connect.prepareStatement("SELECT * FROM users WHERE email=?");
 		st.setString(1, correo);
@@ -61,7 +61,7 @@ public class Conector {
 	return user;
 	}catch(SQLException ex){
 		System.err.println(ex.getMessage());
-		return null;
+		return new Usuario(null,null,null,null);
 	}
 	}
 
@@ -78,7 +78,7 @@ public class Conector {
 	public Usuario saveUsuario(String name, String email, String password) {
 		Usuario user = new Usuario(null,null,null,null);
 		try {
-			if(buscarUsuarioByCorreo(email)==null) {
+			if(buscarUsuarioByCorreo(email).getId()==null) {
 			PreparedStatement st = connect.prepareStatement("insert into users (name, email, contraseña) values (?,?,?)");
 			st.setString(1, name);
 			st.setString(2, email);
