@@ -9,6 +9,7 @@ function evaluar(){
 	}
 }
 evaluar();
+//evaluar
 
 if(document.cookie.length>0){
 	
