@@ -16,8 +16,8 @@
 					<a href="#" id="loginform">Login</a> | <a id="registerform"
 						href="#">Registro</a>
 				</h2>
-				<h2 id="usuarioLogueado"></h2>
-				<input id="txtBusqueda" type="text" placeholder="busqueda...  ej: pikachu" list="lista" onkeypress="return llenarPokemon(event)">
+				<div id="usuarioLogueado"></div>
+				<input id="txtBusqueda" type="text" placeholder="Cargando..." list="lista" onkeypress="return llenarPokemon(event)" disabled>
 				<datalist id="lista"></datalist>
 				<div class="login" id="login">
 					<div class="arrow-up"></div>
@@ -126,6 +126,5 @@
 			src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="scripts/inicio.js"></script>
 		<script src="scripts/pokemon.js"></script>
-		<script src="scripts/principal.js"></script>
 </body>
 </html>

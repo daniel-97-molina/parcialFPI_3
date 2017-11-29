@@ -30,19 +30,42 @@ function cargar(id) {
   evolutionArray = [];
   cantidadEv = 0;
 
-
   var xhttp = new XMLHttpRequest();
+
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       pokemon = JSON.parse(this.responseText);
-      console.log(pokemon);
+      
       mostrarPropiedades();
     }
   };
   xhttp.open("GET", urlBase + "pokemon/" + id, true);
   xhttp.send();
   cargarEspecie(id);
+  
+  if(document.cookie.length>0){
+		
+		var request = new XMLHttpRequest();
+		
+	    request.onreadystatechange = function() {
+	        if (this.readyState == 4 && this.status == 200) {
+	        	favoritos = this.responseText.split(",");
+	        	for(var i=0; i<favoritos.length-1 ; i++){
+	        		if(favoritos[i]==id){
+	        			get("#btnFavorito").className = "";
+	        			break;
+	        		}
+	        	}
+	        }
+	        
+	      };
+		  var idUsuario = document.cookie.split(",")[0].split("usuarioLogueado=")[1];
+		  request.open("GET", "/favoritosByUsuario/"+idUsuario, true);
+		  
+		  request.send();
+	}
 }
+
 
 function mostrarPropiedades() {
 
@@ -73,7 +96,7 @@ function cargarEspecie(id) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       especie = JSON.parse(this.responseText);
-      console.log(especie);
+      
       if (especie.habitat) {
         get("#habitat").innerHTML = especie.habitat.name;
       } else {
@@ -176,6 +199,8 @@ window.onload = function() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+    	get("#txtBusqueda").removeAttribute("disabled");
+    	get("#txtBusqueda").setAttribute("placeholder","pikachu");
       var myObj = JSON.parse(this.responseText);
       for (i = 0; i < 802; i++) {
         pokecomply[i] = String(myObj.results[i].name);
@@ -188,7 +213,8 @@ window.onload = function() {
   if (document.cookie.length > 0) {
 	  setInterval(function(){actualizarLogin()}, 1000);
     get("#loginRegistro").style.display = "none";
-    get("#usuarioLogueado").innerHTML = '<a href="perfil.html">'+document.cookie.split(",")[1]+'</a>';
+    get("#usuarioLogueado").innerHTML = '<a href="perfil.html">'+document.cookie.split(",")[1]+'   </a>';
+    get("#usuarioLogueado").innerHTML += '<a href="#" onclick="cerrarSesion()">  |  Cerrar Sesión </a>';
     get("#usuarioLogueado").style.display = "inline-block";
     get("#register").style.display = "none";
   }
@@ -248,16 +274,14 @@ get("#btnHabilidades").onclick = function() {
 };
 
 get("#formRegistro").onsubmit = function(e) {
-  
+  e.preventDefault();
   var nombre = get("#txtNombre").value;
   var email = document.getElementById("txtEmailRegistro").value;
   var password = document.getElementById("txtPasswordRegistro").value;
   var userRequest = new XMLHttpRequest();
   userRequest.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
       var respuesta = JSON.parse(this.responseText);
-      console.log(respuesta);
       if (respuesta.id === null) {
     	  
         get("#errorRegistro").innerHTML = "Correo ya registrado";
@@ -269,6 +293,7 @@ get("#formRegistro").onsubmit = function(e) {
         document.cookie = "usuarioLogueado=" + [respuesta.id, respuesta.name, respuesta.email] + expires;
         get("#loginRegistro").style.display = "none";
         get("#usuarioLogueado").innerHTML = '<a href="perfil.html">'+respuesta.name+'</a>';
+        get("#usuarioLogueado").innerHTML += '<a href="#" onclick="cerrarSesion()">  |  Cerrar Sesión</a>';
         get("#usuarioLogueado").style.display = "inline-block";
         get("#register").style.display = "none";
         setInterval(function(){actualizarLogin()}, 1*1000);
@@ -303,9 +328,9 @@ get("#formLogin").onsubmit = function(e) {
   var userRequest = new XMLHttpRequest();
   userRequest.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      console.log("responseText:" + this.responseText + "-")
+      
       var respuesta = JSON.parse(this.responseText);
-      console.log(respuesta);
+      
       if (respuesta.id === null) {
         
         get("#errorLogin").innerHTML = "Contraseña o correo incorrecto";
@@ -317,6 +342,7 @@ get("#formLogin").onsubmit = function(e) {
         document.cookie = "usuarioLogueado=" + [respuesta.id, respuesta.name, respuesta.email] + expires;
         get("#loginRegistro").style.display = "none";
         get("#usuarioLogueado").innerHTML = '<a href="perfil.html">'+respuesta.name+'</a>';
+        get("#usuarioLogueado").innerHTML += '<a href="#" onclick="cerrarSesion()">  |  Cerrar Sesión</a>';
         get("#usuarioLogueado").style.display = "inline-block";
         get("#register").style.display = "none";
         setInterval(function(){actualizarLogin()}, 1*1000);
@@ -337,6 +363,10 @@ get("#formLogin").onsubmit = function(e) {
 
 get("#btnFavorito").onclick = function() {
     
+	if(get("#btnFavorito").className === ""){
+		alert("Ya está agregado a favoritos");
+	}else{
+	
     if (document.cookie.length > 0) {
       this.className = "";
       var xhttp = new XMLHttpRequest();
@@ -344,9 +374,17 @@ get("#btnFavorito").onclick = function() {
       xhttp.open("POST", "/pokemonFavoritos", true);
 			var idUsuario = document.cookie.split(",")[0];
 			idUsuario = idUsuario.split("usuarioLogueado=")[1];
-			console.log("id:"+idUsuario);
+			
       xhttp.send(idUsuario+","+idActual);
       }else{
     	  alert("debe registrarse");
       }
     };
+}
+
+function cerrarSesion(){
+	alert("cerrando");
+	document.cookie = "usuarioLogueado=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+}
+    
+    
