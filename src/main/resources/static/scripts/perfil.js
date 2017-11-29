@@ -1,3 +1,5 @@
+
+
 var urlBase = "https://pokeapi.co/api/v2/";
 
 function evaluar(){
@@ -9,20 +11,20 @@ function evaluar(){
 	}
 }
 evaluar();
-//evaluar
+
 
 if(document.cookie.length>0){
-	
+
 	var request = new XMLHttpRequest();
-	
+
     request.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-        	
+
         	console.log(this.responseText);
         	ids = this.responseText.split(",");
         	for(var i = 0; i< ids.length-1; i++){
         	console.log(ids[i]);
-        	mostrar(ids[i]);	
+        	mostrar(ids[i]);
         	}
         }
       };
@@ -47,6 +49,4 @@ function mostrar(idPok) {
 	  xhttp.send();
 	  }
 
-setInterval(function(){evaluar()},1000);
-
-
+setInterval(function(){evaluar();},1000);
